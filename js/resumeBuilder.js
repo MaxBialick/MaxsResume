@@ -13,19 +13,19 @@ var bio={
 };
 
 var work={
-	"jobHistory": [
+	"jobs": [
 	{
 		"employer" : "USAA",
 		"position" : "Software Developer",
 		"dates" : "August 2014 - Present",
-		"city" : "Plano, Texas",
+		"location" : "Plano, Texas",
 		"description" : "Supporting the Claims component. Primarily developing with Java, Javascript, and Salesforce."
 	},
 	{
 		"employer" : "Texas Ski Ranch",
 		"position" : "Camp Director",
 		"dates" : "May 2012 - August 2012",
-		"city" : "New Braunfels, Texas",
+		"location" : "New Braunfels, Texas",
 		"description" : "Managing both day to day, and strategic operations for Texas Ski Ranch's Action Sports Camp."
 	}
 	]
@@ -37,14 +37,14 @@ var education={
 	"school" : "Baylor University",
 	"degree" : "Bachelor of Business Administration",
 	"schoolDates" : "August 2010 - May 2014",
-	"schoolLocation" : "Waco, Texas",
+	"location" : "Waco, Texas",
 	"major" : "Computer Information Systems"
 	},
 	{
 	"school" : "Navarro High School",
 	"degree" : "Yay High School",
 	"schoolDates" : "August 2007 - May 2010",
-	"schoolLocation" : "Geronimo, Texas",
+	"location" : "Geronimo, Texas",
 	"major" : "General Studies"
 	}
 
@@ -111,7 +111,7 @@ var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessag
  $("#topContacts").append([formattedGitHub]);
  $("#topContacts").append([formattedLocation]);
 
-function displaySkills()
+skills.display = function()
 {
 	if(bio.skills.length > 0)
 	{
@@ -131,17 +131,17 @@ function displaySkills()
 	}
 }
 
-function displayWork()
+work.display = function()
 {
-		for (job in work.jobHistory)
+		for (job in work.jobs)
 		{
 			$("#workExperience").append([HTMLworkStart]);
 
-			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobHistory[job].employer);
-			var formattedWorkPosition = HTMLworkTitle.replace("%data%", work.jobHistory[job].position);
-			var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobHistory[job].dates);
-			var formattedWorkCity = HTMLworkLocation.replace("%data%", work.jobHistory[job].city);
-			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobHistory[job].description);
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			var formattedWorkPosition = HTMLworkTitle.replace("%data%", work.jobs[job].position);
+			var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			var formattedWorkCity = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 			var formattedEmployerTitle = formattedEmployer + formattedWorkPosition;
 			$(".work-entry:last").append(formattedEmployerTitle);
 			$(".work-entry:last").append(formattedWorkDates);
@@ -170,7 +170,7 @@ projects.display = function()
 	}
 }
 
-function displayEducation()
+education.display = function()
 {
 	for (university in education.schools)
 	{
@@ -179,7 +179,7 @@ function displayEducation()
 		var formattedSchool = HTMLschoolName.replace("%data%", education.schools[university].school);
 		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[university].degree);
 		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[university].schoolDates);
-		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[university].schoolLocation);
+		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[university].location);
 		var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[university].major);
 
 		$(".education-entry:last").append([formattedSchool]);
@@ -190,9 +190,6 @@ function displayEducation()
 
 	}
 
-}
-function displayOnlineEducation()
-{
 	//Online Education
 	for(website in education.onlineCourses)
 	{
@@ -211,8 +208,7 @@ function displayOnlineEducation()
 
 $("#mapDiv").append(googleMap);
 
-displayWork();
-displaySkills();
+work.display();
+skills.display();
 projects.display();
-displayEducation();
-displayOnlineEducation();
+education.display();

@@ -17,7 +17,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <head>
   <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
-
   <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
 
@@ -38,9 +37,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   you can't accomplish with vanilla (regular) JavaScript.
   -->
   <script src="js/jQuery.js"></script>
-
-  <!-- More on helper.js in the class -->
-  <script src="js/helper.js"></script>
 
   <!--
   Uncomment the <script> tag below when you're ready to add an interactive
@@ -82,6 +78,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     </div>
   </div>
 
+  <!-- More on helper.js in the class -->
+  <script src="js/helper.js"></script>
+
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
   writing. In resumeBuilder.js, you'll be writing code that builds the resume
@@ -98,6 +97,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   course.
   -->
 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzeQth4fsLkO0tnMoNXAthoo7g1R_x05M"
+    type="text/javascript"></script>
   <script type="text/javascript">
     // Notice how all of a sudden there's JavaScript inside this HTML
     // document? You can write JavaScript between <script> tags. At the end of your
@@ -111,7 +112,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     /*
         an opening and closing set of slash asterisks for block comments.
     */
-
 
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';

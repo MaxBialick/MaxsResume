@@ -113,7 +113,7 @@ function initializeMap() {
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   // <div id="map">, which is appended as part of an exercise late in the course.
-  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+  map = new google.maps.Map(document.getElementById('#map'), mapOptions);
 
 
   /*
@@ -126,7 +126,7 @@ function initializeMap() {
     var locations = [];
 
     // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+    locations.push(bio.location);
 
     // iterates through school locations and appends each location to
     // the locations array
@@ -139,8 +139,9 @@ function initializeMap() {
     for (var job in work.jobs) {
       locations.push(work.jobs[job].location);
     }
-
+    console.log("LOCATIONS: " + locations)
     return locations;
+
   }
 
   /*
