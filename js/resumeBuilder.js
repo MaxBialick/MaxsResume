@@ -211,8 +211,4 @@ $("#mapDiv").append(googleMap);
 work.display();
 skills.display();
 projects.display();
-<<<<<<< HEAD
 education.display();
-=======
-education.display();
->>>>>>> origin/master
