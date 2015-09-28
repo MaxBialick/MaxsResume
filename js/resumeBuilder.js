@@ -116,7 +116,10 @@ var formattedLocation = HTMLlocation.replace("%data%", bio.location);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 var formattedSkills = HTMLskills.replace("%data%", bio.skills);
- //Bio
+
+bio.display = function()
+{
+	 //Bio
  $("#header").append([formattedName]);
  $("#header").append([formattedRole]);
  $("#header").append([formattedWelcomeMessage]);
@@ -132,6 +135,8 @@ var formattedSkills = HTMLskills.replace("%data%", bio.skills);
  $("#topContacts").append([formattedEmail]);
  $("#topContacts").append([formattedGitHub]);
  $("#topContacts").append([formattedLocation]);
+}
+
 
 
 work.display = function()
@@ -214,3 +219,4 @@ $("#mapDiv").append(googleMap);
 work.display();
 projects.display();
 education.display();
+bio.display();
