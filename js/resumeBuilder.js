@@ -1,5 +1,5 @@
 
-var skills = ["Salesforce", "Java", "Javascript", "C#"];
+//var skills = ["Salesforce", "Java", "Javascript", "C#"];
 var bio={
 	"name" : "Maxwell Bialick",
 	"role" : "Software Developer",
@@ -9,8 +9,30 @@ var bio={
 	"location" : "Plano, Texas",
 	"bioPic" : "http://a1.s6img.com/cdn/0024/u/9445987_4468908_f.jpg",
 	"welcomeMessage" : "Welcome to my Resume!",
-	"skills" : skills
+	"skills" : ["Salesforce", "Java", "Javascript", "C#"]
+	
 };
+
+var skills = bio.skills;
+
+function makeUL(array) {
+    // Create the list element:
+    var list = document.createElement('ul');
+
+    for(var i = 0; i < array.length; i++) {
+        // Create the list item:
+        var item = document.createElement('li');
+
+        // Set its contents:
+        item.appendChild(document.createTextNode(array[i]));
+
+        // Add it to the list:
+        list.appendChild(item);
+    }
+
+    // Finally, return the constructed list:
+    return list;
+}
 
 var work={
 	"jobs": [
@@ -93,7 +115,7 @@ var formattedGitHub = HTMLgithub.replace("%data%", bio.github);
 var formattedLocation = HTMLlocation.replace("%data%", bio.location);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-
+var formattedSkills = HTMLskills.replace("%data%", bio.skills);
  //Bio
  $("#header").append([formattedName]);
  $("#header").append([formattedRole]);
@@ -103,7 +125,7 @@ var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessag
  $("#footerContacts").append([formattedEmail]);
  $("#footerContacts").append([formattedGitHub]);
  $("#footerContacts").append([formattedLocation]);
- 
+ $("#header").append((makeUL(skills)));
  
 //top
  $("#topContacts").append([formattedPhone]);
@@ -111,25 +133,6 @@ var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessag
  $("#topContacts").append([formattedGitHub]);
  $("#topContacts").append([formattedLocation]);
 
-skills.display = function()
-{
-	if(bio.skills.length > 0)
-	{
-		$("#header").append([HTMLskillsStart]);
-
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-		$("#skills").append([formattedSkill]);
-
-		formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-		$("#skills").append([formattedSkill]);
-		
-		formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-		$("#skills").append([formattedSkill]);
-
-		formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-		$("#skills").append([formattedSkill]);
-	}
-}
 
 work.display = function()
 {
@@ -209,6 +212,5 @@ education.display = function()
 $("#mapDiv").append(googleMap);
 
 work.display();
-skills.display();
 projects.display();
 education.display();
