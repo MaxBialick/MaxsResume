@@ -106,35 +106,34 @@ var projects={
 }
 
 
-//bio
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedPhone = HTMLmobile.replace("%data%", bio.phone);
-var formattedEmail = HTMLemail.replace("%data%", bio.email);
-var formattedGitHub = HTMLgithub.replace("%data%", bio.github);
-var formattedLocation = HTMLlocation.replace("%data%", bio.location);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-
 bio.display = function()
 {
-	 //Bio
- $("#header").append([formattedName]);
- $("#header").append([formattedRole]);
- $("#header").append([formattedWelcomeMessage]);
- $("#header").append([formattedBioPic]);
- $("#footerContacts").append([formattedPhone]);
- $("#footerContacts").append([formattedEmail]);
- $("#footerContacts").append([formattedGitHub]);
- $("#footerContacts").append([formattedLocation]);
- $("#header").append((makeUL(skills)));
- 
-//top
- $("#topContacts").append([formattedPhone]);
- $("#topContacts").append([formattedEmail]);
- $("#topContacts").append([formattedGitHub]);
- $("#topContacts").append([formattedLocation]);
+	//bio
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	var formattedPhone = HTMLmobile.replace("%data%", bio.phone);
+	var formattedEmail = HTMLemail.replace("%data%", bio.email);
+	var formattedGitHub = HTMLgithub.replace("%data%", bio.github);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.location);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+
+	$("#header").append([formattedName]);
+	$("#header").append([formattedRole]);
+	$("#header").append([formattedWelcomeMessage]);
+	$("#header").append([formattedBioPic]);
+	$("#footerContacts").append([formattedPhone]);
+	$("#footerContacts").append([formattedEmail]);
+	$("#footerContacts").append([formattedGitHub]);
+	$("#footerContacts").append([formattedLocation]);
+	$("#header").append((makeUL(skills)));
+	 
+	//top
+	 $("#topContacts").append([formattedPhone]);
+	 $("#topContacts").append([formattedEmail]);
+	 $("#topContacts").append([formattedGitHub]);
+	 $("#topContacts").append([formattedLocation]);
 }
 
 
