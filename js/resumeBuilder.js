@@ -1,5 +1,3 @@
-
-//var skills = ["Salesforce", "Java", "Javascript", "C#"];
 var bio={
 	"name" : "Maxwell Bialick",
 	"role" : "Software Developer",
